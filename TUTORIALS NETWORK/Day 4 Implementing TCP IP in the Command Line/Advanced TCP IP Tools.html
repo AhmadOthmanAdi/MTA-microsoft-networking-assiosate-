@@ -1,0 +1,566 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Advanced TCP/IP Tools</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9c889459-66c5-4a97-b0a2-be5a1c07847c" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/pia22949.jpg"/></div><h1 class="page-title">Advanced TCP/IP Tools</h1></header><div class="page-body"><ul id="1183ff5c-6663-4818-93ed-e2eaee947a49" class="bulleted-list"><li><em>NetStat </em></li></ul><p id="166acb46-15f7-4c89-8ccd-c13988ec6549" class="">Display active TCP Connections &amp; Ports where the Client is Listening / Ethernet Statistics / IP Routing Table </p><p id="5dc8162f-716c-43aa-b84f-66dfce74bf83" class="">IPv4 Statistics for protocols ICMP;TCP;UDP</p><p id="c7334f16-7851-48b4-8ac7-5a25a1f286d7" class="">IPv6 Statistics for <mark class="highlight-red">ICMPv6</mark>;<strong>TCP </strong><mark class="highlight-red">Over IPv6</mark>;<strong>UDP </strong><mark class="highlight-red">Over IPv6</mark></p><p id="2ea1031c-4cc5-4129-aeeb-a4ad46eaaf35" class=""><mark class="highlight-red">WITH NO PAREMITERS </mark>(Display Active TCP Connections &gt; connection to Other Systems) </p><hr id="006d1a8a-5963-4744-bcfb-6a605d7faa3b"/><ul id="9fe0dc1c-7ea1-489c-af25-26a246b375ca" class="bulleted-list"><li><em>NbtStat</em></li></ul><p id="91b65ad0-d0db-4f69-89b3-4b48a65465cf" class="">      <strong>Display </strong>NetBIOS over TCP/IP (NetBT) Protocols statistics for Local &amp; Remote Clients<div class="indented"><p id="b3426907-8a2e-43d3-8f66-163058a941e9" class=""><strong>Display </strong>NetBIOS Name Tables for Local &amp; Remote Clients</p><p id="39997fa0-5df0-4512-8044-4a0a9996c321" class=""><strong>Display </strong>NetBIOS <mark class="highlight-red">Cash</mark></p><p id="24d60dfd-1364-4644-a994-786474d2f65e" class=""><mark class="highlight-teal">ESTABLISHES</mark></p><p id="4e302fac-3a64-46db-9bd4-202ac8ce7eee" class="">Logical Names on the network</p><p id="7334bc3a-88e6-40d5-aac7-6061aef7f09e" class="">Sessions between Two Logical Names on Network &gt; <mark class="highlight-teal"><strong>Establishing a session </strong></mark>allows Two Clients on Network to start <mark class="highlight-teal"><strong>Reliable Data transfer</strong></mark></p></div></p><hr id="51adaff8-8a7f-40c0-886f-423c572d2a27"/><ul id="33fbb8b1-a3d3-4804-ab59-d2bd9f4ac3c7" class="bulleted-list"><li><em>PathPING</em></li></ul><p id="57ef1ac1-4846-4b1e-a831-0ba29c67d0bb" class=""><mark class="highlight-teal">Additional Information Displayed </mark>in Combination of <mark class="highlight-teal"><strong>Powers </strong></mark>of <strong><mark class="highlight-teal">PING </mark></strong>and <mark class="highlight-teal"><strong>traceRT</strong></mark></p><p id="242bf28b-c9ce-4f43-b81b-2104771a6957" class=""><mark class="highlight-blue_background"><strong>Send&#x27;s packages to Each Router On the way to Final Destination</strong></mark>, and <code>compute </code>results based on <code>RETURN </code>time from each <mark class="highlight-teal">HOP</mark></p><p id="9e15b462-b6a1-4c13-9cce-11081f1bc27d" class="">📍 PinPOINT Malfunctioned Routes/Routers/Lines By showing <mark class="highlight-red">Packet Loss Degree</mark></p><hr id="3b79e292-c3f9-448e-8bd7-21b8712d0bf5"/><ul id="ca3f6d0c-cd02-456e-a6ea-805b4309ad93" class="bulleted-list"><li><em>NsLookup</em></li></ul><p id="2bec5ef0-1b5e-4504-a89f-f7fa6e9503a8" class=""><mark class="highlight-red">Diagnose </mark>DNS <mark class="highlight-red">ISSUES </mark></p><p id="84ebc905-886b-4528-8dbe-53d32da775ed" class=""><strong>Lookup </strong><mark class="highlight-red">NAME </mark>of <mark class="highlight-red">HOST </mark>to <mark class="highlight-red">Check </mark>proper <mark class="highlight-blue"><strong>DNS Name Resolution  </strong></mark></p><hr id="b2cf5cf2-de37-47ad-af69-33776e7f1e49"/><ul id="c03731a8-b42e-4b87-b922-d9586ab3577b" class="bulleted-list"><li><em>Netsh </em>— Net Shell</li></ul><p id="e67bf435-1620-4d45-94d2-1425b0ffef44" class=""><mark class="highlight-red">Scripting </mark>Utility &gt; With an <mark class="highlight-red">extra commands </mark>e.g Netsh <mark class="highlight-red">+Command </mark>allows to perform Different Options e.g &lt;<mark class="highlight-red">Local/Remote Client Commands</mark>&gt; Provide <strong><mark class="highlight-red">Scripting Future </mark></strong>&lt; <code>.BATCH </code>&gt; a Group of Scripts against a specific Target aka. <mark class="highlight-red">Client </mark>on Network &lt;Local or Remote&gt;</p><blockquote id="766e32a9-4d6f-4593-ab4e-9ef162e86f54" class=""><mark class="highlight-blue_background">Archiving Code Is possible with Export</mark></blockquote><hr id="44c0e765-d25f-4e8b-9ff6-36f3ce5dd649"/><ul id="6914eb19-1623-4857-8d36-c903e3235de3" class="bulleted-list"><li><em>Route </em>(<code>- Print</code>) </li></ul><p id="31535aa3-150a-40f4-9213-0513a9aea7db" class=""><strong>Defines </strong>and Modifies Entries of local IP Routing Table e.g figure out way from city to other city </p><p id="a0e17a00-9592-46d5-82bb-135dc1e95f8d" class=""><strong>Display </strong>Routing Table with &lt;&lt;Route (<code>-PRINT</code>)&gt;  ~ <strong><code>NetStat - R</code></strong><strong>&gt;</strong></p><p id="77a63638-2af5-4219-aa26-bea895a0256f" class=""><strong>Can be Used </strong>to <mark class="highlight-red">Add/delete </mark>Static Routes </p><hr id="e44ad5af-41c7-4feb-aed6-8e0cb1e8418a"/><ul id="542b596c-7068-4b8c-a870-25d0b7914286" class="bulleted-list"><li><em>Net</em></li></ul><p id="c0f75a05-e003-4911-9f60-7924cad6f824" class="">Mini Command - Can be used to TEST Network Connectivity on System - not necessary a part of TCP/IP STACK</p><hr id="a7ac0da1-2bf4-4d9f-b1e9-452a34d79af4"/><ul id="4c948295-95aa-4883-82b1-8c5083f00fd5" class="bulleted-list"><li><em>Telnet </em><mark class="highlight-red"><em>PORT:23</em></mark></li></ul><p id="44efd74a-f776-431b-9be3-195825461c13" class=""><strong>Allows </strong>To <mark class="highlight-red">Communicate </mark>with <mark class="highlight-red">remote </mark>Client also Using <mark class="highlight-red">Telnet Protocol </mark></p><p id="2238ecfc-721a-4a1f-967b-586392265a79" class=""><mark class="highlight-red">Initiate </mark>TELNET Session CMD&gt;Telnet&gt; ..hostname&quot;/..IP address&quot; then a <mark class="highlight-red">TELNET prompt is Received</mark>&lt;low lever&gt; to perform Basic Commands on <mark class="highlight-red">Target Client</mark></p><p id="0163cf23-4823-416d-ad54-8b8f0bfca466" class="">TEST Ports (<mark class="highlight-red">Troubleshooting</mark>)&gt; TelNET Server ..PORT NAME&quot;</p><p id="c0fe8ed0-fb3e-4563-bf8e-3c2a4af57a36" class="">
+</p></div></article></body></html>

@@ -1,0 +1,566 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Day 1 LAN and Other LAN</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="01e51472-7d43-4c5a-a3b5-1c5c4b243257" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_2.jpg" style="object-position:center 28.049999999999997%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/></div><h1 class="page-title">Day 1 LAN and Other LAN</h1></header><div class="page-body"><p id="9f43d18e-204c-42e7-90cb-c6d1a9fab79b" class=""><strong><mark class="highlight-blue">AS LEARNED FROM THE QUESTIONERE </mark></strong></p><p id="01791d7f-2ae6-4c63-83e3-a1f66066b88e" class="">Advantage of <code>dynamic routing</code> is : <strong>Automatically maintains </strong>routing tables</p><hr id="29c12b4d-efbd-489e-9946-576a9b58f678"/><p id="fe6966cd-889e-4923-ab55-4930c55f9995" class=""><mark class="highlight-red">NAT </mark>allows access to <mark class="highlight-teal">Private </mark>Networks from <mark class="highlight-teal">Public </mark>Networks</p><p id="eb3ac283-42a5-4d0b-8c2a-c7c5f4af710b" class="">enables <mark class="highlight-teal">local computers </mark>with<mark class="highlight-teal"> private addresses</mark> to <mark class="highlight-teal">connect to the Internet</mark></p><hr id="8bcc3129-df6d-40a6-bd5b-e53b826cf9fb"/><p id="cb975d3b-991f-43b9-8cab-47343b23b7e1" class=""><code>Switch </code>associates MAC with IP</p><hr id="835f55b7-4b9e-4192-b661-ff28fa9ba597"/><p id="d3a5eb3a-13f6-4989-99ed-b78d553f6e1a" class="">1000BaseT &gt; <code>100</code> <code>Meters</code></p><hr id="e2c081b8-ba04-404e-b15e-19e3127f8f9b"/><p id="5e295d97-22df-4f64-82b6-0f42323c0453" class="">DNS look up client settings is <code>NSLOOKUP</code></p><hr id="6766ab61-b42f-4e5e-bdd4-5bbf8c9cb61b"/><p id="7cfd25df-ada1-4de3-bff7-e4f39035abb1" class="">Simple Mail Transfer Protocol <strong>SMTP </strong>port &gt;<code>25</code></p><hr id="bcf8555b-18e0-4351-bdb2-da2f9ebc1633"/><p id="2c4fa7ee-4d90-402d-87d9-809d567b4394" class="">ping &gt; Determine whether a host is reachable , Self-test a host&#x27;s own network interface</p><hr id="90a19a0c-6af1-4d91-b56d-4232b277d88e"/><p id="eea1712f-1527-4de1-a2a9-ef5c3eaca14b" class="">DHCP &gt; Address reservation, IP address exclusion</p><hr id="e6050b6a-ee14-4943-a168-908aed94d397"/><p id="5f56684d-22d8-4880-accb-0431ba945aeb" class="">Check Incoming connections with  <code>NETSTSAT</code></p><hr id="d8595659-7b33-4d6b-b210-3c4916fe1d8a"/><p id="0e99f726-fbfc-44ab-920a-a7a6ee0c7091" class="">APIPA address  169.254. 0.1  <code>TO</code> 169.254. 255.254 <code>IPV4 </code>2016:0db9:0000:0000:0000:ff00:0042:8329 Range of <code>IPv6</code> and lookup with <code>DHCP</code> </p><hr id="abfbd71c-6064-4f19-af85-07cb30b57b7e"/><p id="35e9aeeb-3910-433d-9623-1ba0cfffc518" class="">Only <code>Valid </code>255.255.255.240 as Subnet Mask</p><hr id="db3d29d3-f428-4682-bda1-224056e0634d"/><p id="928eef4f-4dc1-41a7-87fd-935322dbe2d6" class="">Resolve <code>NetBIOS </code>to <code>IP</code> with <code>WINS </code>windows Internet Name Service </p><hr id="26a128ae-48fd-4899-b1eb-80e1d34fad3a"/><p id="2086150d-08ea-4897-ae03-f139d6fcb09f" class=""><code>Teredo</code> Protocol Allows connectivity <mark class="highlight-teal"><strong>IPV6 to IPV4</strong></mark></p><hr id="aa5ee379-cc91-47f7-be08-009faefc3071"/><p id="655e689b-9174-4a23-af99-1dde039b6721" class=""><strong>Factors </strong>has the <strong>biggest impact </strong>on <strong>data transmission </strong>: <mark class="highlight-red">Transmission </mark>Standard of <mark class="highlight-red">equipment&#x27;s </mark>in Wireless Networks</p><hr id="4e8948fe-5469-4983-b717-deecca1e70f0"/><p id="5548905e-a508-46c5-9fad-1510adcfb849" class=""><code>telnet </code><mark class="highlight-red">Teletype Network </mark>Provide Command line interface for <strong>communication </strong>with <mark class="highlight-teal"><strong>Remote Device </strong></mark>or <mark class="highlight-teal"><strong>Server </strong></mark>Port number 23</p><hr id="f386ba96-9012-44c3-accf-b615aecb0970"/><p id="28ed907d-0587-435f-baf9-ae1855086c93" class=""><code>Ping</code> a Server with <mark class="highlight-teal"><strong>FQDN</strong></mark> not working but with IP address Problem is <strong>DNS </strong>server Not resolving </p><hr id="bf30c210-75e9-444b-8b9d-ddc4ca764ee4"/><p id="62c89be3-dc87-43e5-a80f-fa1025172e49" class="">MAC identifise a NIC network interface card </p><hr id="e1f9ed2a-0257-40c4-8f6b-b47e574a64fe"/><p id="d8c22694-0d4a-4b45-aab3-bf2becdade8b" class=""><code>Perimeter </code>Seperate <strong>Comapny network</strong> from <strong>public network </strong></p><hr id="8a7b5514-e5f6-47a3-a7f6-de23793e1d43"/><p id="74cc6566-7a31-48e3-8bb2-b43b16df319a" class="">in <code>LAN </code>primary <strong>media access  </strong>methods are <mark class="highlight-teal"><strong>Token Rings </strong></mark>and <mark class="highlight-teal"><strong>Contention</strong></mark></p><hr id="d2300889-449e-4f1d-ac33-e709ac8126b6"/><p id="fe144799-839f-4225-97fa-9a4a78faf342" class="">Extend <strong>internal network </strong>to <strong>Public </strong>or such with <strong>VPN</strong></p><hr id="eca25cf6-5cf8-41e3-8a26-fc51cbef1898"/><p id="db40fc61-88bc-4fe1-b353-f4836ed3df99" class="">IEEE902.11b <mark class="highlight-teal"><strong>Broadcast </strong></mark>with 802.11g <mark class="highlight-teal"><strong>Connection established </strong></mark></p><hr id="2c121c4a-91d2-452c-9d4c-275616ef0683"/><p id="b3756c22-e373-40c2-b10e-63f07cb7e038" class=""><code>DS3</code> technology offering highest <mark class="highlight-teal"><strong>bit rate </strong></mark></p><hr id="1b2c1109-be50-48cf-9043-f51d3eeaf65e"/><p id="d750ae01-05f0-4b8b-88f0-bd2210c906bb" class=""><strong><code>Node </code></strong>within <mark class="highlight-teal"><strong>LAN </strong></mark>must have <mark class="highlight-teal"><strong>NIC </strong></mark>and <strong>Host Address</strong></p><hr id="65a4f475-57ff-4041-84ac-1d470c7688a4"/><p id="3f9785e4-d492-49b5-b334-a8196d883aa4" class=""><mark class="highlight-teal"><strong>ARP </strong></mark>Map <strong>IP </strong>to <strong>MAC </strong></p><hr id="7f29767a-e823-4633-8410-b0926acae3d3"/><p id="76deb039-9573-4bfc-96f3-a7922bd7c943" class=""><mark class="highlight-teal"><a href="http://mail.exchange.corp.nwtraders.com/">mail.exchange.corp.nwtraders.com</a></mark><mark class="highlight-teal"> </mark><code><strong>MAIL </strong></code>is the <strong>Host Name</strong></p><hr id="f62ec949-fabe-4637-b906-178d8fb8fa81"/><p id="427373db-fc4e-4786-845d-e9928a12d7eb" class=""><mark class="highlight-purple"><strong>Multicast Addresses </strong></mark><strong>IPv4 </strong><mark class="highlight-teal">224.0.0.0 to 239.255.255.255.</mark></p><hr id="d80b4a46-458d-4e42-992a-62d9aa4d052d"/><p id="7a5c7e0d-1191-4942-b652-d151554febb8" class=""><mark class="highlight-teal_background"><strong>FTP</strong></mark><mark class="highlight-teal_background"> </mark><mark class="highlight-teal_background"><strong>Application layer</strong></mark><strong>  protocol</strong></p><hr id="de3c3abe-6a6a-4fa7-b9f6-1e61f4816178"/><p id="885ed7bf-5be5-4cba-a361-2a4939259485" class=""><strong><mark class="highlight-teal_background">Hardware Addresses IP&#x27;s</mark></strong><strong> </strong>are stored in OSI <mark class="highlight-teal_background">layer 2</mark></p><hr id="60ce7dbb-6dd0-4331-a0d6-797f2e363320"/><p id="b14d76fb-d101-408e-b526-1642bd507c94" class=""><code>Switches</code> provide <mark class="highlight-teal"><code>Layer 3</code></mark><mark class="highlight-teal"> </mark>Routing Functions</p><hr id="53718b30-07a7-4c0a-8220-71dc21bb543c"/><p id="a5b4014a-458b-470d-a771-578ee2d4d42e" class=""><mark class="highlight-pink_background"><strong><code>WAN </code></strong></mark>needs <mark class="highlight-teal">Ethernet </mark>and <mark class="highlight-teal">Leased Lines </mark>for <strong>Connectivity </strong></p><hr id="2cb20fdd-821b-4d64-8399-bd2670f7407e"/><p id="646fcb94-b2e8-4de1-a2cf-112e596d9480" class="">Security is a concern on <strong>wireless </strong>networks due to: <mark class="highlight-teal">Radio Broadcast Access Method </mark></p><hr id="25377763-a053-487f-a641-b016b6e0b401"/><p id="9d25c49f-6fdb-42f7-aab2-636d55a4ca06" class="">One purpose of Perimeter is to Make <mark class="highlight-teal">resources available </mark>on the internet </p><hr id="cecc9d9d-f34f-4669-88c4-718e248de1b6"/><p id="3954e8c5-6340-424f-974b-4472d90bcdb3" class=""><mark class="highlight-teal">Session Layer </mark>in OSI Modell allows Ability for <mark class="highlight-teal">applications </mark>processes on <mark class="highlight-teal">different Machines </mark>to <strong><mark class="highlight-teal">Create and use connection </mark></strong></p><hr id="6529e1a6-503b-41fb-ba84-3f04dd28ae83"/><p id="8c2e41bb-6f36-4875-9732-a36a7ed4ae6e" class="">The <mark class="highlight-red">default gateway address </mark>identifies the : <mark class="highlight-red">Device </mark>that will <mark class="highlight-red">connect the computer </mark>to a <mark class="highlight-red">remote network</mark></p><hr id="ab708b19-ab86-4adc-8376-36b5d7febbf0"/><p id="553369ac-a790-4840-bca5-9f6f61923d5c" class="">The process of <mark class="highlight-red">replicating a zone file to multiple DNS</mark> servers is called <mark class="highlight-teal">Zone Transfer</mark></p><hr id="3eeff40f-bb57-47fc-98c9-d728d654076e"/><p id="de54458e-04cd-457f-823f-591b641a45ca" class=""><mark class="highlight-red">Two features </mark>of a <mark class="highlight-red">Windows Server 2008 R2 </mark>server should you install <mark class="highlight-red">to use that server as a software router : </mark><mark class="highlight-teal">Network Policy and Access Services / Routing and Remote Access Services</mark></p><hr id="406a273f-1f39-44bc-b07e-242afe8baad1"/><p id="ce34ab8e-44d7-4284-a103-9412a38fc32a" class=""><mark class="highlight-red">Two characteristics of fiber optic cable : </mark><mark class="highlight-teal">Supports splicing / Requires a polish for end connectors</mark></p><hr id="c9dff640-4c99-4eb1-9819-f5595bae4a01"/><p id="a5282736-4266-4590-9b71-1edea3fa6bdc" class=""><mark class="highlight-blue">Network adapter</mark> aka <mark class="highlight-blue">Network interface</mark> card <code>NIC</code>uses&#x27;s Ethernet Network connection with RJ45</p><hr id="a2937166-a652-4087-a99e-e43ac67d74ab"/><p id="008d836a-369a-4d69-b78b-a817a3ae9ea3" class=""><mark class="highlight-yellow">security </mark>type requires <mark class="highlight-yellow">certificates security for its encryption 801.1X</mark></p><hr id="2362cdd1-3aeb-4e5d-8125-15bb00685d59"/><p id="43c1d5c5-15f5-4a92-a14a-4e753fa27f29" class="">(<mark class="highlight-red">FQDN</mark>) <a href="http://mail.exchange.corp.nwtraders.com/">mail.exchange.corp.nwtraders.com</a> <mark class="highlight-red">Host-Name is </mark>: Mail</p><hr id="7043a9a2-e807-481a-9b5e-641a07b619a8"/><p id="6e13bbe5-d7af-4219-afbf-bd5f8b48ef03" class=""><mark class="highlight-gray">packet</mark><mark class="highlight-blue"> transfer  speeds</mark><mark class="highlight-gray"> between</mark><mark class="highlight-blue"> modules in a modular switch </mark><mark class="highlight-gray">is known as</mark> <mark class="highlight-purple">:</mark><mark class="highlight-teal"> backplane speed</mark></p><hr id="beda89c5-c4de-4ee1-9453-c779aa338c57"/><p id="91350508-be1c-4343-9436-e80b73753446" class="">your <mark class="highlight-yellow">computer</mark> has an <strong><mark class="highlight-yellow">IP</mark></strong><mark class="highlight-yellow"> </mark>address of <strong><mark class="highlight-yellow">0.0.0.0 </mark></strong>: The<mark class="highlight-yellow"> </mark><strong><mark class="highlight-yellow">TCP</mark></strong><mark class="highlight-yellow">/</mark><strong><mark class="highlight-yellow">IP protocol</mark></strong><strong> </strong>suite did not<strong><mark class="highlight-yellow"> initialize during startup</mark></strong></p><hr id="9b122404-a038-4d86-858b-74a8433753b8"/><p id="77d38fb7-58d6-4fb8-8df0-d984bcdcb089" class="">The Internet security zone includes : all external Web sites that are not listed in the Restricted or Trusted Sites zone</p><hr id="eddd69cb-dafb-4b6a-9530-edec0495b680"/><p id="29ad225d-b61f-4f96-aaff-900141f123c5" class="">Ethernet network topology : </p><ul id="198d6df9-42d1-4a6a-81a2-7ffe91a6f8c1" class="bulleted-list"><li>It can use coaxial, twisted pair, and fiber optic media</li></ul><ul id="28756666-1a90-4e47-9add-263897bf8730" class="bulleted-list"><li>It can negotiate different transmission speeds</li></ul><ul id="97c95001-51b8-442a-adac-aabed96a1f4f" class="bulleted-list"><li>It comprises the largest share of the networks in place today</li></ul><p id="d5ec41cf-0706-4926-b2ac-3c1861c551b4" class="">
+</p><hr id="54c82c56-8f4e-476f-a668-867e1e1ad123"/><p id="e8b76653-cadc-40af-90fb-1c0932c20442" class="block-color-gray">configured to automatically receive an IP address and it also has Automatic Private IP Addressing (APIPA) enabled</p><p id="1796c959-79ce-4bd9-9582-d0a18ba894bd" class="block-color-gray">You use the ipconfig command to view the TCP/IP settings on your computer and discover that it has an IP address of 0.0.0.0 :<mark class="highlight-red"> Windows cannot detect a connection to the network media</mark></p><hr id="abbf756d-f5b5-41e7-b4ae-ecd86f6b56ac"/><p id="18fc8a8d-5693-4e49-9188-06f94c273073" class=""><mark class="highlight-gray">Which is the first step for a host to resolve a fully qualified domain name (FQDN) on a network that includes an authoritative Domain Name System (</mark>DNS) server :<mark class="highlight-orange"> Check the FQDN against the local host name</mark></p><figure id="c9fdf8e3-0f0c-4bb7-a154-211c0525c717" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/LAN.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>LAN</a></figure><figure id="b06cccaa-f627-4e68-a4ae-dee546a1f9a2" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/HUB%20Switch.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>HUB / Switch</a></figure><figure id="c0227047-12d1-48a2-b767-332afbaeeb6f" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Router.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Router</a></figure><figure id="69e0ce7e-a052-4d43-8134-cae59482f6c0" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Patch%20cable.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Patch cable </a></figure><figure id="130cb9b1-c28d-4e0f-bbd7-83664d53b6b5" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Wireless%20access%20points.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Wireless access points</a></figure><figure id="a6e86b2d-e37b-4d67-9b02-3272200aefb3" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Serial%20data%20transfer%20Data%20transfer%20rate.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Serial data transfer / Data transfer rate</a></figure><figure id="e4591ded-69f5-4a33-8ed7-a3110a114f4e" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/VLAN.html"><span class="icon">🏉</span>VLAN</a></figure><figure id="2b0e2398-8576-48ed-9ddc-e699534675e2" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/IP%20Addresses.html"><span class="icon">🎫</span>IP Addresses</a></figure><figure id="ebf5ef18-a7e0-421a-959b-ef7351dec616" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Network%20Topologie.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Network Topologie</a></figure><figure id="f20ac5b5-d3a1-4e2a-a00f-c42f0d03f0bb" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Ethernet%20Physicals%20topology.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Ethernet Physicals topology</a></figure><figure id="0ae7dc07-20dd-4021-bd24-4a40e89a23c9" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Frames.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Frames</a></figure><figure id="b8b3962e-b2b5-4ea0-a4f3-80d6d5ea246f" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Centralized%20Computing.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Centralized Computing </a></figure><figure id="e27c001e-9f58-47fb-a98f-df50bbe0aa96" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Client%20Server%20modell.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Client Server modell </a></figure><figure id="69aaf104-7eed-4251-b803-2c92fa994d7f" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/P2P%20Peer%20to%20peer.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>P2P Peer to peer </a></figure><figure id="8bedee43-c268-4ad9-9e5a-edc003159053" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Distributed%20Computing.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Distributed Computing</a></figure><figure id="9850a9a5-54b7-4a98-90f7-09ee725f8aba" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Remote%20desktop%20and%20remote%20services.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Remote desktop and remote services</a></figure><figure id="8f40bf20-7fb0-45c6-a7d0-a85a0ada8528" class="link-to-page"><a href="Day%201%20LAN%20and%20Other%20LAN/Server.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Server</a></figure></div></article></body></html>

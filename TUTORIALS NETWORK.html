@@ -1,0 +1,567 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>TUTORIALS NETWORK</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="952413e0-6346-44b1-8cee-8078e6a4c0eb" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_ibm_type_704.jpg" style="object-position:center 46.56%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/iss061e063461_0.jpg"/></div><h1 class="page-title">TUTORIALS NETWORK</h1></header><div class="page-body"><p id="f4e6f486-fa5f-4134-a5bd-3402fadbd688" class="">examining network area devices, standards </p><p id="cd908472-3890-43a7-9cbd-bf89d612ed6a" class="block-color-pink"><mark class="highlight-blue">Netwroking fundementals </mark></p><p id="67cabce8-fd24-4806-bd0d-2c64b857648e" class=""><mark class="highlight-teal">understanding local Area Network</mark></p><p id="3fc38ee0-1152-467e-9e95-aa9d88431b7c" class=""><mark class="highlight-teal">Node</mark>: devices on network</p><p id="d441c6aa-1639-44de-9670-451be5ab5bf1" class=""><mark class="highlight-teal">Peer</mark>: Client or Server &gt; Devices act as peers &gt; Network adapters &gt; access multiple media</p><p id="4952494c-920b-402a-b1ad-5520fd94d987" class=""><mark class="highlight-teal">Hub</mark>: multiple connected devices </p><p id="b69523b2-18f7-4140-938a-53107dc7fcbf" class=""><mark class="highlight-teal">Switch</mark>: similar to hub smarter </p><p id="6415414d-b26f-4124-83f5-5440c5145115" class=""><mark class="highlight-teal">Media</mark>: what devices communicate on </p><p id="ab896d5b-804d-4f27-8891-f745c1964c15" class=""><mark class="highlight-teal">Transport Protocol</mark>: Rouls for systems to transport Data </p><p id="a31d1c7a-a211-4097-8552-55718eda89d7" class=""><mark class="highlight-teal">Bandwidth</mark>: what actually use to transfer data across network</p><p id="5d8fbaf3-8ebf-479a-a6c1-c52cdc0828d5" class=""><mark class="highlight-teal">IntraNet</mark>: Private Computer Network - user Authentication is Necessary - allows members of an organization to exchange data</p><p id="ed08f10e-f7ac-4fab-a4c6-5b532d73359a" class=""><mark class="highlight-teal">ExtranNet</mark>: Groups Working in the Company but necessary in the Company Physical Location- Allows data exchange over the Internet</p><p id="1703498a-8044-4b21-b9cc-b0b3887dcdd4" class=""><mark class="highlight-teal">HOP</mark>: Crossing Router, used in determining time between each HOP of a sent Data package </p><p id="68f1b022-0a94-40d7-a509-ed5b8ad558ab" class=""><mark class="highlight-teal">HUB</mark>: cenetral connecting tool &gt; simplist device &gt; not P2P &gt; plug Client to box and listen to ports from all Pc&#x27;s &gt; if server send packet the hub send the data to all Clients</p><p id="ccb0a1b5-78d7-4a68-821b-34e3aceb40b1" class=""><mark class="highlight-teal">SWITCH</mark>: switches can recieve and send data same time &gt; every hardware network card has a MAC address </p><p id="23ccd392-c2d4-43d7-84b4-59929bcf73bd" class="">ports on switch doesnt know the MAC address but know where is it headed to and send it down to correct client</p><p id="b1a50222-2d16-4f32-88c8-4dd1fbef0cad" class=""><code>Hub </code>share transfer Rate on all ports &gt; Switches has addressable ports Shares maximum transport rate across all Ports</p><p id="73af4f98-4973-479b-bf1f-4b3f31718b82" class=""><div class="indented"><p id="cf44c5df-c230-46ec-8022-c61df4f4d81e" class="">                                                                                                                   </p><h2 id="471ed774-01ac-499e-be22-31712d7cd719" class="">🛎️<mark class="highlight-red">IMPORTANT🛎️</mark></h2><p id="2324e46e-2289-49cf-95d2-8754b4c164b6" class=""><strong>Devices used in OSI layers :</strong></p><ol id="9ee4a1f1-8678-4f9a-bdfe-cddb5ab46785" class="numbered-list" start="1"><li><mark class="highlight-red">Physical layer or below </mark>: Hubs, Repeaters, Cables, Fibers, Wireless..</li></ol><ol id="3732e23c-138e-4343-9f1a-04a5ce9202c4" class="numbered-list" start="2"><li><mark class="highlight-red">Data-link layer</mark>: Bridges, Modems, Network cards, 2-layer switches.</li></ol><ol id="3711fd23-aec0-4509-8909-6eb287dba3b5" class="numbered-list" start="3"><li><mark class="highlight-red">Network layer</mark>: Routers, Brouters, 3-layer switches.</li></ol><ol id="4209b271-a799-46f9-b487-c7bc17ae4f09" class="numbered-list" start="4"><li><mark class="highlight-red">Transport layer</mark>: Gateways, Firewalls.</li></ol><ol id="4f9cb3fe-b15c-4531-8322-f660b016e8fb" class="numbered-list" start="5"><li><mark class="highlight-red">Session layer:</mark> Gateways, Firewalls, PC’s.</li></ol><ol id="ab5bbfc1-39d9-453f-b2b4-2e6c9fe405bb" class="numbered-list" start="6"><li><mark class="highlight-red">Presentation layer </mark>: Gateways, Firewalls, PC’s.</li></ol><ol id="0a2ea64d-459f-4179-9106-36b906ccfbdb" class="numbered-list" start="7"><li><mark class="highlight-red">Application layer</mark>: Gateways,Firewalls, all end devices like PC’s, Phones, Servers..</li></ol></div></p><div id="e65624a6-699c-4f01-ad7f-5410af5dbcc5" class="column-list"><div id="f17b4fc5-b506-41ec-a9bb-cc14386a9f68" style="width:50.000000000000014%" class="column"><figure id="b07018ab-d79b-4686-8222-b593cae3b0e1" class="image"><a href="https://networkencyclopedia.com/wp-content/uploads/2019/08/tcp-ip-protocol.jpg"><img style="width:528px" src="https://networkencyclopedia.com/wp-content/uploads/2019/08/tcp-ip-protocol.jpg"/></a></figure><p id="383f08ef-eca8-4d07-ae73-5161bfe55b5c" class="">
+</p></div><div id="2f86abcf-a90c-4d3f-9d19-02a5e8c501a2" style="width:50%" class="column"><figure id="770fb7dd-05ff-43ca-ae91-238255973fd2" class="image"><a href="http://fiberbit.com.tw/wp-content/uploads/2013/12/TCP-IP-model-vs-OSI-model.png"><img style="width:624px" src="http://fiberbit.com.tw/wp-content/uploads/2013/12/TCP-IP-model-vs-OSI-model.png"/></a></figure></div></div><div id="32054dbb-8e44-4c0f-8341-6b3f65ff76c9" class="column-list"><div id="24121280-6839-42f6-b00b-025f5cd56aa3" style="width:50%" class="column"><figure id="8208b6f6-b012-494b-be67-f510ef8f80ca" class="image"><a href="https://www.dummies.com/wp-content/uploads/290809.image0.jpg"><img style="width:528px" src="https://www.dummies.com/wp-content/uploads/290809.image0.jpg"/></a></figure></div><div id="71cc245d-4c0c-45ff-9fe3-1568c95b6e5f" style="width:49.99999999999999%" class="column"><figure id="e575e6c6-a78f-4780-a18e-46773b8e4dd8" class="image"><a href="http://www.softpanorama.org/Net/Images/tcp_ip_layers.gif"><img style="width:480px" src="http://www.softpanorama.org/Net/Images/tcp_ip_layers.gif"/></a></figure></div></div><figure id="3a9b12b4-53a4-43b0-86f7-8e0b5782d43a" class="image"><a href="TUTORIALS%20NETWORK/main-qimg-3dccb42f7aaf9ca38be58b24defd8519.png"><img style="width:864px" src="TUTORIALS%20NETWORK/main-qimg-3dccb42f7aaf9ca38be58b24defd8519.png"/></a></figure><p id="1d55180d-3abf-428d-8dad-15613cb27c54" class="">
+</p><figure id="01e51472-7d43-4c5a-a3b5-1c5c4b243257" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day%201%20LAN%20and%20Other%20LAN.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hst-sm4.jpg"/>Day 1 LAN and Other LAN</a></figure><figure id="b738b1eb-56b6-443b-9e83-25448ac6dcb9" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day%202%20OSI%20Layers.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia23441.jpg"/>Day 2 OSI Layers</a></figure><figure id="447799ca-b353-49a1-8170-cecce4f00fbf" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day%203%20Understanding%20Wired%20and%20Wireless%20Networks.html"><img class="icon" src="https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA23594_hires.jpg"/>Day 3 Understanding Wired and Wireless Networks</a></figure><figure id="50f2a6f3-2523-4615-a33f-f57059b841e2" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day%204%20Implementing%20TCP%20IP%20in%20the%20Command%20Line.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/pia22949.jpg"/>Day 4 Implementing TCP/IP in the Command Line</a></figure><figure id="89c6b615-2be4-4d88-8aeb-9636cd7ad97f" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day5%20Working%20with%20Networking%20Services.html"><img class="icon" src="TUTORIALS%20NETWORK/Day5%20Working%20with%20Networking%20Services/Untitled.png"/>Day5 Working with Networking Services</a></figure><figure id="7455f4bb-90a0-4c59-b905-c3c276ede4f2" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day%206%20Understanding%20Wide%20Area%20Networks.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/westernhemisphere_geos_2019246_lrg.jpg"/>Day 6 Understanding Wide Area Networks</a></figure><figure id="27d7c75b-2d68-43a9-95a1-14198f224bc7" class="link-to-page"><a href="TUTORIALS%20NETWORK/Day7%20Defining%20Network%20Infrastructure%20and%20Network%20S.html"><img class="icon" src="https://www.nasa.gov/sites/default/files/thumbnails/image/hubble.jpg"/>Day7 Defining Network Infrastructure and Network Security</a></figure><figure id="50c30eff-cf99-4e50-95b7-573031776891" class="link-to-page"><a href="TUTORIALS%20NETWORK/Frequencies%20Allocation.html"><span class="icon">🌸</span>Frequencies &amp; Allocation</a></figure><figure id="9c4c929c-6e98-4f3d-a89f-14ece3ff6e09" class="link-to-page"><a href="TUTORIALS%20NETWORK/VoIP%20Voice%20over%20Internet%20Protocol.html"><span class="icon">🕶</span>VoIP Voice over Internet Protocol</a></figure><figure id="6738f0b8-b7f4-4cf4-a386-9d4343c42110" class="link-to-page"><a href="TUTORIALS%20NETWORK/IKE.html"><span class="icon">🔑</span>IKE</a></figure><figure id="efb2cd24-d118-4388-9174-4ecbc83b6970" class="link-to-page"><a href="TUTORIALS%20NETWORK/Ethernet%20Cabling%20Standards.html"><span class="icon">➰</span>Ethernet Cabling Standards</a></figure><figure id="dd3cfdcb-b973-4c6a-9372-79f96949cd7d" class="link-to-page"><a href="TUTORIALS%20NETWORK/QoS.html"><span class="icon">✔️</span>QoS</a></figure><figure id="edd3f902-5a91-4bc1-85e6-bc08fa2fd150" class="link-to-page"><a href="TUTORIALS%20NETWORK/PVA%20private%20Class%20Addresses.html"><span class="icon">🐳</span>PVA private Class Addresses</a></figure><figure id="9b02ba27-ac92-4da9-afae-ec14210866b8" class="link-to-page"><a href="TUTORIALS%20NETWORK/STP%20UTP%20Shielded%20Unshielded%20Twisted%20Pair.html"><span class="icon">🎓</span>STP UTP Shielded/Unshielded  Twisted Pair</a></figure><figure id="42a2b044-a810-4058-a918-04dd089a5ad5" class="link-to-page"><a href="TUTORIALS%20NETWORK/RADIUS.html"><span class="icon">⚽</span>RADIUS</a></figure><figure id="576b3383-cca1-4a90-a379-59703860b4c4" class="link-to-page"><a href="TUTORIALS%20NETWORK/PORTS.html"><span class="icon">🌾</span>PORTS</a></figure><figure id="53a300e9-f7f8-4644-a050-d4c10b5ba494" class="link-to-page"><a href="TUTORIALS%20NETWORK/CIDR.html"><span class="icon">💌</span>CIDR</a></figure><figure id="707da92b-9016-471f-8602-d31af4400527" class="link-to-page"><a href="TUTORIALS%20NETWORK/IPv6.html"><span class="icon">⛳</span>IPv6</a></figure><figure id="c057570b-3781-4d95-9da3-1ad0af64b6c2" class="link-to-page"><a href="TUTORIALS%20NETWORK/Media%20Contention.html"><span class="icon">🐐</span>Media Contention </a></figure><figure id="fff95caf-3ff6-49b4-8d06-a87dcf529407" class="link-to-page"><a href="TUTORIALS%20NETWORK/SNMP.html"><span class="icon">🔮</span>SNMP</a></figure></div></article></body></html>
